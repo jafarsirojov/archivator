@@ -31,10 +31,7 @@ func Benchmark_conArchive(b *testing.B) {
 }
 
 func Benchmark_seqArchive(b *testing.B) {
-	err := os.Chdir("../../")
-	if err != nil {
-		log.Fatal(err)
-	}
+
 	for i := 0; i < b.N; i++ {
 		data := []string{
 			"a.exe",
