@@ -1,10 +1,18 @@
 package main
 
-import "testing"
+import (
+	"log"
+	"os"
+	"testing"
+)
 
 func Benchmark_conArchive(b *testing.B) {
-	for i:=0;i<b.N;i++{
-		data:=[]string{
+	err := os.Chdir("../../")
+	if err != nil {
+		log.Fatal(err)
+	}
+	for i := 0; i < b.N; i++ {
+		data := []string{
 			"a.exe",
 			"a.txt",
 			"b.exe",
@@ -23,8 +31,12 @@ func Benchmark_conArchive(b *testing.B) {
 }
 
 func Benchmark_seqArchive(b *testing.B) {
-	for i:=0;i<b.N;i++{
-		data:=[]string{
+	err := os.Chdir("../../")
+	if err != nil {
+		log.Fatal(err)
+	}
+	for i := 0; i < b.N; i++ {
+		data := []string{
 			"a.exe",
 			"a.txt",
 			"b.exe",
